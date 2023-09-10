@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.text())
     .then(data => {
         dictionary = data.split("\n");
+        populateTrie(); 
     })
     .catch(error => {
         console.error("Error fetching dictionary:", error);
@@ -64,10 +65,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     console.log(dictionary);
-    const trie = new Trie();
-    for (let word of dictionary) {
-        console.log(word);
-        trie.insert(word);
+    function populateTrie() {
+        const trie = new Trie();
+        for (let word of dictionary) {
+            console.log(word);
+            trie.insert(word);
+        }
     }
     
     function getPossibleWords(chars) {
