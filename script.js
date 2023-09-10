@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
             if (node.isEndOfWord) {
                 acceptedWords.push(currentWord);
             }
+            // Inside the search function
+            console.log("Current Word:", currentWord);
+
     
             for (let i = 0; i < chars.length; i++) {
                 const char = chars[i];
@@ -59,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     const trie = new Trie();
     for (let word of dictionary) {
+        console.log(word);
         trie.insert(word);
     }
     
