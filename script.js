@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
-    console.log(dictionary);
+    let trie;
     function populateTrie() {
-        const trie = new Trie();
+        trie = new Trie();
         for (let word of dictionary) {
             console.log(word);
             trie.insert(word);
@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const chars = generateRandomChars();
     lettersContainer.textContent = chars;
 
-    console.log("testing");
     const possibleWords = getPossibleWords(chars);
     console.log(possibleWords);
     const wordListContainer = document.querySelector(".wordList");
