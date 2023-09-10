@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(response => response.text())
     .then(data => {
         dictionary = data.split("\n");
+    })
+    .catch(error => {
+        console.error("Error fetching dictionary:", error);
     });
 
     function generateRandomChars(length = 6) {
