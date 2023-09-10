@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function getPossibleWords(chars) {
         let acceptedWords = [];
         trie.search(trie.root, chars, "", acceptedWords);
+        console.log(acceptedWords);
         return [...new Set(acceptedWords)]; // Remove duplicates
     }
     
