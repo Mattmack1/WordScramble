@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     
+    console.log(dictionary);
     const trie = new Trie();
     for (let word of dictionary) {
         console.log(word);
