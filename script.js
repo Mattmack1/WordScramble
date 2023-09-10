@@ -72,18 +72,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const input = document.getElementById("playerInput");
     input.addEventListener("keyup", function(event) {
-        if(event.key === "Enter") {
+        if (event.key === "Enter") {
             const enteredWord = input.value;
-            // Logic to check if the word is in the possible words
-            // And updating the UI accordingly
+            
+            // Get the possible words
+            let possibleWords = getPossibleWords(chars); // Assuming `chars` contains your set of characters
+    
+            if (possibleWords.includes(enteredWord)) {
+                // The word is correct!
+                // Update the UI to reflect the correctly guessed word. 
+                // This will be dependent on your exact HTML structure, 
+                // but as an example, let's assume you have a div for displaying correct guesses:
+    
+                let correctWordsDiv = document.getElementById("correctWords");
+                let wordElement = document.createElement("div");
+                wordElement.innerText = enteredWord;
+                correctWordsDiv.appendChild(wordElement);
+    
+                // Optionally: clear the input for the next word
+                input.value = '';
+            } else {
+                // The word isn't in the list of possible words.
+                // Provide feedback to the user. Maybe you have an alert box or an error message div:
+    
+                alert('The word is not valid or not possible from the given letters.'); 
+                // or update a specific div with an error message if you want to avoid pop-up alerts.
+            }
         }
     });
+    
 
     // Initialization
     const lettersContainer = document.querySelector(".letters");
     const chars = generateRandomChars();
     lettersContainer.textContent = chars;
 
+    console.log("testing");
     const possibleWords = getPossibleWords(chars);
     console.log(possibleWords);
     const wordListContainer = document.querySelector(".wordList");
