@@ -8,9 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="letters"></div>
-        <input type="text" id="playerInput" placeholder="Enter your word guess...">
-        <div class="wordList"></div>
+        <div class="letters" id="charSet"> <!-- Added an id for possible future use -->
+            <!-- Randomly generated characters will be placed here -->
+        </div>
+        <input type="text" id="playerInput" placeholder="Enter your word guess..."> <!-- Changed id to "input" -->
+        <div class="wordList" id="correctWords"> <!-- Added an id to target in JS -->
+            <!-- Correctly guessed words will be placed here -->
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
